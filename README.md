@@ -1,10 +1,10 @@
-# Bluetooth Vulnerability Scanner 🔍
+# Bluetooth Vulnerability Scanner 
 
 **Advanced Bluetooth security assessment toolkit**
 
-## Developed by Anas Erami 💻🔒
+## Developed by Anas Erami 
 
-## Key Features ✨
+## Key Features 
 
 - 🛰️ Dual-mode scanning (Classic Bluetooth + BLE)
 - 🔍 Comprehensive vulnerability detection (BlueBorne, KNOB, BIAS, SweynTooth)
@@ -14,14 +14,14 @@
 - 📋 Vulnerability status indicators (OPEN/CLOSED/PARTIAL)
 - 🛡️ Security severity ratings (CRITICAL/HIGH/MEDIUM)
 
-## Requirements 📋
+## Requirements 
 
 - Linux OS (Kali Linux recommended)
 - Python 3.7+
 - Bluetooth adapter (built-in or USB dongle)
 - Root privileges
 
-## Installation ⚙️
+## Installation ⚙
 
 ```bash
 # Install dependencies
@@ -32,14 +32,14 @@ sudo apt install python3 python3-pip bluez bluez-tools bluetooth
 pip3 install colorama
 
 # Clone repository
-git clone https://github.com/anas-2003/bluetooth-scanner.git
+git clone https://github.com/anas-2003/blu-scan.git
 cd bluetooth-scanner
 
 # Make script executable
 chmod +x bluetooth_pentest.py
 ```
 
-## Usage 🚀
+## Usage 
 
 ```bash
 sudo ./bluetooth_pentest.py
@@ -54,7 +54,7 @@ sudo ./bluetooth_pentest.py
 
 
 
-## Detected Vulnerabilities 🚨
+## Detected Vulnerabilities 
 
 | Vulnerability  | Status Indicator | Severity | Test Included |
 |----------------|------------------|----------|---------------|
