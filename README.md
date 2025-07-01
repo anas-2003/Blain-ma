@@ -1,6 +1,5 @@
 # Bluetooth Vulnerability Scanner 🔍
 
-![Banner](https://via.placeholder.com/800x200/2c3e50/ffffff?text=Bluetooth+Vulnerability+Scanner)  
 **Advanced Bluetooth security assessment toolkit**
 
 ## Developed by Anas Erami 💻🔒
@@ -33,7 +32,7 @@ sudo apt install python3 python3-pip bluez bluez-tools bluetooth
 pip3 install colorama
 
 # Clone repository
-git clone https://github.com/AnasErami/bluetooth-scanner.git
+git clone https://github.com/anas-2003/bluetooth-scanner.git
 cd bluetooth-scanner
 
 # Make script executable
@@ -53,16 +52,7 @@ sudo ./bluetooth_pentest.py
 4. **Advanced exploitation toolkit** - Generate exploit scripts
 5. **Exit** - Quit the application
 
-## Screenshots 📸
 
-### Main Interface
-![Main Menu](https://via.placeholder.com/600x300/1a2b3c/ffffff?text=Professional+Terminal+Interface)
-
-### Vulnerability Scan
-![Vulnerability Scan](https://via.placeholder.com/600x300/2c3e50/ffffff?text=Vulnerability+Scan+Results)
-
-### Advanced Tools
-![Advanced Tools](https://via.placeholder.com/600x300/34495e/ffffff?text=Advanced+Exploitation+Tools)
 
 ## Detected Vulnerabilities 🚨
 
@@ -95,5 +85,4 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 
 ---
 **Developed with ❤️ by Anas Erami - Security Researcher**  
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yourprofile)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anas-2003)
