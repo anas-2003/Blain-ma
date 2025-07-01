@@ -33,7 +33,7 @@ pip3 install colorama
 
 # Clone repository
 git clone https://github.com/anas-2003/blu-scan.git
-cd bluetooth-scanner
+cd blu-scan
 
 # Make script executable
 chmod +x bluetooth_pentest.py
