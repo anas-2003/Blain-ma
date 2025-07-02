@@ -1,88 +1,150 @@
-# Bluetooth Vulnerability Scanner 
+# Blain Framework v6.0
 
-**Advanced Bluetooth security assessment toolkit**
+<div align="center">
 
-## Developed by Anas Erami 
-
-## Key Features 
-
-- 🛰️ Dual-mode scanning (Classic Bluetooth + BLE)
-- 🔍 Comprehensive vulnerability detection (BlueBorne, KNOB, BIAS, SweynTooth)
-- 📊 Professional terminal interface with color-coded results
-- 🎯 Targeted device analysis
-- ⚡ Auto-generated exploit scripts
-- 📋 Vulnerability status indicators (OPEN/CLOSED/PARTIAL)
-- 🛡️ Security severity ratings (CRITICAL/HIGH/MEDIUM)
-
-## Requirements 
-
-- Linux OS (Kali Linux recommended)
-- Python 3.7+
-- Bluetooth adapter (built-in or USB dongle)
-- Root privileges
-
-## Installation ⚙
-
-```bash
-# Install dependencies
-sudo apt update
-sudo apt install python3 python3-pip bluez bluez-tools bluetooth
-
-# Install Python requirements
-pip3 install colorama
-
-# Clone repository
-git clone https://github.com/anas-2003/blu-scan.git
-cd blu-scan
-
-# Make script executable
-chmod +x bluetooth_pentest.py
+```
+ ____  _       _                  
+| __ )| | __ _(_)_ __ 
+|  _ \| |/ _` | | '_ \ 
+| |_) | | (_| | | | | |
+|____/|_|\__,_|_|_| |_|
 ```
 
-## Usage 
+**Blain: Bluetooth Anas Intelligence Network**
 
-```bash
-sudo ./bluetooth_pentest.py
-```
+An Advanced Bluetooth Penetration & Zero-Day Discovery Platform
 
-### Main Menu Options:
-1. **Show discovered devices** - List all Bluetooth devices in range
-2. **Scan vulnerabilities** - Comprehensive security assessment
-3. **Target specific device** - Focus on a particular device
-4. **Advanced exploitation toolkit** - Generate exploit scripts
-5. **Exit** - Quit the application
+</div>
 
-
-
-## Detected Vulnerabilities 
-
-| Vulnerability  | Status Indicator | Severity | Test Included |
-|----------------|------------------|----------|---------------|
-| BlueBorne     | OPEN/CLOSED     | CRITICAL | ✅            |
-| KNOB Attack   | OPEN/PATCHED    | HIGH     | ✅            |
-| BIAS Attack   | PARTIAL         | MEDIUM   | ✅            |
-| SweynTooth    | OPEN            | HIGH     | ✅            |
-| OBEX Exploits | OPEN            | MEDIUM   | ✅            |
-
-## Ethical Use Policy ⚖️
-
-> **Warning**  
-> This tool is for educational purposes only. Only test devices you own.  
-> Unauthorized access to computer systems is illegal.  
-> The developer assumes no liability for misuse of this software.
-
-## License 📜
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-## Contribution 🤝
-
-Contributions are welcome! Please open an issue or submit a pull request for any:
-- Bug fixes
-- New vulnerability signatures
-- Feature enhancements
-- Documentation improvements
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python 3.8+">
+  <img src="https://img.shields.io/badge/Platform-Linux-lightgrey.svg" alt="Platform: Linux">
+  <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT">
+  <img src="https://img.shields.io/badge/Maintained%3F-Yes-green.svg" alt="Maintained">
+</p>
 
 ---
-**Developed with ❤️ by Anas Erami - Security Researcher**  
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/anas-2003)
+
+## 📜 About The Project
+
+**Blain** is a powerful open-source Bluetooth security framework designed for penetration testers, researchers, and advanced users. Built by Anas Erami, Blain aims to provide a professional-grade toolkit for discovering, assessing, and exploiting Bluetooth vulnerabilities — with an emphasis on ethical usage and zero-day research.
+
+Version 6.0 introduces a full-featured **fuzzing engine**, making Blain a next-gen platform for discovering previously unknown vulnerabilities in BLE devices.
+
+---
+
+## ✨ Key Features
+
+### 🔍 Reconnaissance & Scanning
+- **Dual-Mode Scanning:** Supports both Classic Bluetooth (BR/EDR) and BLE.
+- **Deep Profiling:** Gathers detailed info: name, MAC, vendor, RSSI, services.
+- **Service Enumeration:** Extracts SDP and GATT services for attack surface mapping.
+
+### 🔒 Vulnerability Assessment
+- **Modular JSON Database:** Load, update, and manage known vulnerability definitions.
+- **Active Rule-Based Testing:** Goes beyond version checks — executes commands and pairing attempts to confirm vulnerabilities like BlueBorne, KNOB, and BIAS.
+
+### 💣 Exploitation Toolkit
+- **Pairing Exploits:** Common-PIN, forced pairing, and bypass attacks.
+- **BLE Data Access:** Read/write/subscribe to BLE characteristics.
+- **AVRCP/OBEX Hijack:** Take control of media or access files from vulnerable targets.
+- **DoS Attacks:** Launch GATT or L2CAP flood attacks.
+- **A2DP Eavesdropping:** (Experimental, requires Ubertooth or SDR hardware).
+
+### 🧠 Zero-Day Fuzzing Engine
+- **Mutation-Based Fuzzing:** Smart (bit-flip) and dumb fuzzing modes.
+- **Live Target Health Check:** Auto-monitoring via l2ping.
+- **Crash Logging:** Generates detailed JSON crash reports with test data.
+
+### 🛠 Monitoring & Post-Exploitation
+- **Bluetooth Sniffing:** Integrated with Wireshark/dumpcap.
+- **Logs & Reports:** Structured output for all scans, exploits, and fuzzing attempts.
+
+---
+
+## ⚙️ Requirements
+
+### System Requirements
+- **OS:** Debian-based Linux (Ubuntu, Kali, Parrot, etc.)
+- **Permissions:** Root (sudo) access required
+- **Hardware:** Compatible Bluetooth adapter (Classic & BLE)
+
+### Dependencies
+
+Blain requires several tools and libraries. Run the installer to handle them.
+
+#### System Packages
+- `bluez`, `bluez-tools`, `ubertooth`, `ffmpeg`, `gr-bluetooth`, `wireshark`
+
+#### Python Modules
+- `bleak`, `pexpect`, `pyobex`, `dbus-python`, `colorama`
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/anas-2003/Blain-ma.git
+cd Blain-ma
+```
+
+### 2. Run the Installer
+```bash
+sudo ./install_and_run.sh
+```
+
+This script will:
+- Install all system dependencies
+- Create a virtual environment
+- Install all Python modules
+- Launch the framework
+
+To specify an adapter:
+```bash
+sudo ./install_and_run.sh --adapter hci1
+```
+
+---
+
+## ⚠️ Legal Disclaimer
+
+> This framework is provided for **educational** and **authorized** testing only. You are fully responsible for how you use this tool. **Never scan, exploit, or interact with Bluetooth devices you do not own or have explicit permission to test.**
+
+Anas Erami assumes **no liability** for misuse or damages.
+
+---
+
+## 🤝 Contributing
+
+Blain is open to contributions!
+
+- Add new vulnerability definitions (JSON)
+- Report bugs or suggest enhancements
+- Fork and submit PRs
+
+### Steps to contribute:
+1. Fork the project
+2. Create a branch (`git checkout -b feature/new-tool`)
+3. Commit your changes
+4. Push and open a PR
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file.
+
+---
+
+## 📧 Contact
+
+**Developer:** Anas Erami  
+📧 Email: [anaserami17@gmail.com](mailto:anaserami17@gmail.com)  
+🔗 GitHub: [github.com/anas-2003/Blain-ma](https://github.com/anas-2003/Blain-ma)
+
+> Framework Name: **Blain** — Bluetooth Anas Intelligence Network
+
+---
+
+Thanks for using Blain. Stay safe. Hack ethically.
