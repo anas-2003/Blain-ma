@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-# Elite Bluetooth Penetration & Exploitation Framework
+# Elite Bluetooth Penetration & Exploitation Framework - Blain.ma
 # Developed by Anas Erami
-# Version 6.0 - Zero-Day Discovery via Fuzzing
 
 import subprocess
 import os
@@ -16,8 +15,8 @@ import signal
 import dbus
 import pexpect
 import asyncio
-import random # For fuzzing
-import binascii # For hex conversion
+import random 
+import binascii 
 from colorama import Fore, Style, init
 from bleak import BleakClient, BleakScanner, BLEDevice
 from pyobex.client import Client
@@ -43,7 +42,7 @@ class BluetoothPentestFramework:
         self.downloads_dir = self.config.get('downloads_dir', 'downloads')
         self.logs_dir = self.config.get('logs_dir', 'logs')
         self.vuln_defs_dir = self.config.get('vuln_defs_dir', 'vuln_definitions')
-        self.crashes_dir = self.config.get('crashes_dir', 'crashes') # New for fuzzing crashes
+        self.crashes_dir = self.config.get('crashes_dir', 'crashes') 
 
         self.check_bluetooth_status()
         self.check_dependencies()
@@ -51,7 +50,6 @@ class BluetoothPentestFramework:
         self._load_vulnerability_definitions()
     
     def _load_config(self):
-        """Loads configuration from config.json"""
         config_path = 'config.json'
         if os.path.exists(config_path):
             try:
@@ -70,7 +68,7 @@ class BluetoothPentestFramework:
                 "downloads_dir": "downloads",
                 "logs_dir": "logs",
                 "vuln_defs_dir": "vuln_definitions",
-                "crashes_dir": "crashes" # Default for crashes
+                "crashes_dir": "crashes" 
             }
             with open(config_path, 'w') as f:
                 json.dump(default_config, f, indent=4)
@@ -83,7 +81,7 @@ class BluetoothPentestFramework:
         if not os.path.exists(self.vuln_defs_dir):
             os.makedirs(self.vuln_defs_dir, exist_ok=True)
             print(f"{Fore.YELLOW}[*] Created {self.vuln_defs_dir} directory. Please add vulnerability definition JSON files here.")
-            self.create_default_vuln_defs() # Call method to create defaults
+            self.create_default_vuln_defs() 
             
         for filename in os.listdir(self.vuln_defs_dir):
             if filename.endswith('.json'):
@@ -102,7 +100,6 @@ class BluetoothPentestFramework:
                     print(f"{Fore.RED}[!] Error loading vulnerability definition file {filename}: {e}")
 
     def create_default_vuln_defs(self):
-        """Creates default vulnerability definition files if directory is empty."""
         blueborne_def = {
             "name": "BlueBorne (CVE-2017-1000251)",
             "description": "Critical vulnerabilities allowing RCE, MITM, and DoS without user interaction.",
@@ -134,7 +131,6 @@ class BluetoothPentestFramework:
 
 
     def setup_directories(self):
-        """إنشاء مجلدات لتخزين النتائج"""
         os.makedirs(self.recording_dir, exist_ok=True)
         os.makedirs(self.exploits_dir, exist_ok=True)
         os.makedirs(self.downloads_dir, exist_ok=True)
@@ -143,7 +139,6 @@ class BluetoothPentestFramework:
         os.makedirs(self.crashes_dir, exist_ok=True)
 
     def check_bluetooth_status(self):
-        """تحقق من حالة البلوتوث وتشغيله إذا كان معطلاً"""
         print(f"{Fore.CYAN}[*] Checking Bluetooth status for {self.hci_adapter}...")
         try:
             bus = dbus.SystemBus()
@@ -181,7 +176,6 @@ class BluetoothPentestFramework:
             sys.exit(1)
     
     def check_dependencies(self):
-        """التحقق من التبعيات المطلوبة"""
         required_cmds = ["hcitool", "bluetoothctl", "sdptool", "l2ping", "gatttool", 
                          "ffmpeg", "ubertooth-util", "btmgmt", "dbus-send", "dumpcap"]
         
@@ -197,7 +191,6 @@ class BluetoothPentestFramework:
         except subprocess.CalledProcessError:
             missing.append("gr-bluetooth (GNU Radio Bluetooth tools)")
 
-        # Check Python libraries
         try:
             import bleak
             import pyobex
@@ -213,7 +206,6 @@ class BluetoothPentestFramework:
             sys.exit(1)
     
     def run_cmd(self, cmd, background=False, check_output=True, timeout=None):
-        """تنفيذ أمر في الخلفية أو الأمامية مع معالجة محسنة للأخطاء"""
         try:
             if background:
                 process = subprocess.Popen(cmd, shell=True, preexec_fn=os.setsid, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -231,8 +223,7 @@ class BluetoothPentestFramework:
             return ""
     
     def show_banner(self):
-        """عرض شعار الأداة"""
-        banner = fr"""{Fore.GREEN}
+        banner = fr"""{Fore.GREEN} 
  ____  _       _         _             
 | __ )| | __ _(_)_ __   (_) __ _ _ __  
 |  _ \| |/ _` | | '_ \  | |/ _` | '_ \ 
@@ -249,7 +240,6 @@ class BluetoothPentestFramework:
         print(f"{Fore.RED}[!] Unauthorized use is illegal and unethical")
     
     async def scan_devices(self):
-        """مسح الأجهزة باستخدام تقنيات متقدمة"""
         print(f"{Fore.GREEN}[*] Scanning Bluetooth devices ({self.scan_time} seconds) on {self.hci_adapter}...")
         
         classic_devices = []
@@ -266,7 +256,6 @@ class BluetoothPentestFramework:
         self.save_scan_results()
     
     async def advanced_classic_scan(self, classic_devices_list):
-        """مسح متقدم للأجهزة الكلاسيكية باستخدام bluetoothctl"""
         try:
             print(f"{Fore.CYAN}[*] Starting Classic Bluetooth scan...")
             scan_process = self.run_cmd(f"bluetoothctl -a --timeout {self.scan_time} scan on", background=True)
@@ -299,7 +288,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] Advanced Classic scan error: {str(e)}")
 
     async def advanced_ble_scan(self, ble_devices_list):
-        """مسح متقدم لأجهزة BLE مع معلومات إضافية باستخدام Bleak"""
         print(f"{Fore.CYAN}[*] Starting BLE scan with Bleak...")
         try:
             devices = await BleakScanner.discover(timeout=self.scan_time, adapter=self.hci_adapter)
@@ -345,7 +333,6 @@ class BluetoothPentestFramework:
         return list(merged_devices.values())
     
     def get_detailed_classic_info(self, device_entry):
-        """الحصول على تفاصيل إضافية للجهاز الكلاسيكي"""
         mac = device_entry['mac']
         
         info_output = self.run_cmd(f"hcitool -i {self.hci_adapter} info {mac}")
@@ -365,7 +352,6 @@ class BluetoothPentestFramework:
         device_entry['services_sdp'] = self.run_cmd(f"sdptool browse {mac}")
 
     def get_vendor(self, mac):
-        """الحصول على اسم الشركة المصنعة من عنوان MAC (قائمة مخصصة ومحاولة oui.txt)"""
         oui_prefix = mac[:8].upper().replace(':', '')
         
         vendors = {
@@ -386,7 +372,6 @@ class BluetoothPentestFramework:
         return vendors.get(oui_prefix, "Unknown Vendor")
     
     def show_menu(self):
-        """عرض القائمة الرئيسية"""
         print(f"\n{Fore.CYAN}┌─────────────────[ MAIN MENU ]─────────────────┐")
         print(f"│ {Fore.YELLOW}1. Show discovered devices                    {Fore.CYAN}│")
         print(f"│ {Fore.YELLOW}2. Advanced vulnerability assessment         {Fore.CYAN}│")
@@ -398,7 +383,7 @@ class BluetoothPentestFramework:
         return input(f"{Fore.GREEN}[>] Select option: ")
     
     def display_devices(self):
-        """عرض الأجهزة المكتشفة بتفاصيل متقدمة"""
+
         print(f"\n{Fore.CYAN}┌───────────────[ DISCOVERED DEVICES ]───────────────┐")
         for i, device in enumerate(self.devices, 1):
             status = f"{Fore.RED}VULNERABLE" if 'vulnerabilities' in device else f"{Fore.GREEN}SECURE"
@@ -422,14 +407,12 @@ class BluetoothPentestFramework:
         print(f"└────────────────────────────────────────────────────┘")
     
     def get_bt_version(self, info_output):
-        """استخراج إصدار البلوتوث من hcitool info"""
         match = re.search(r"LMP Version: ([\d.]+)", info_output)
         if match:
             return match.group(1)
         return "Unknown"
 
     async def advanced_vulnerability_assessment(self):
-        """فحص متقدم للثغرات مع اختبارات فعلية بناءً على تعريفات JSON"""
         print(f"\n{Fore.RED}[*] Starting advanced vulnerability assessment...")
         
         self.vulnerable_devices = []
@@ -500,7 +483,6 @@ class BluetoothPentestFramework:
         self.save_vulnerability_report()
     
     async def scan_gatt_services(self, mac):
-        """مسح متقدم لخدمات GATT باستخدام Bleak"""
         print(f"{Fore.CYAN}  [*] Scanning GATT services with Bleak for {mac}...")
         services_data = {}
         try:
@@ -539,7 +521,7 @@ class BluetoothPentestFramework:
         return services_data
     
     def display_results(self):
-        """عرض تقرير الثغرات المفصل"""
+
         print(f"\n{Fore.CYAN}┌────────────────────[ VULNERABILITY REPORT ]────────────────────┐")
         if not self.vulnerable_devices:
             print(f"│ {Fore.GREEN}No critical vulnerabilities found in scanned devices.{Style.RESET_ALL}      │")
@@ -572,7 +554,6 @@ class BluetoothPentestFramework:
         print(f"└────────────────────────────────────────────────────────────────┘")
     
     def target_device(self):
-        """اختيار جهاز مستهدف"""
         self.display_devices()
         try:
             choice = int(input(f"{Fore.GREEN}[>] Select device number: "))
@@ -588,7 +569,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] An error occurred: {str(e)}")
     
     async def exploitation_menu(self):
-        """قائمة استغلال الثغرات"""
         while True:
             print(f"\n{Fore.CYAN}┌──────────[ EXPLOITATION: {self.current_target['name']} ({self.current_target['mac']}) ]──────────┐")
             print(f"│ {Fore.YELLOW}1. A2DP Audio Eavesdropping (Ubertooth)    {Fore.CYAN}│")
@@ -626,7 +606,6 @@ class BluetoothPentestFramework:
                 print(f"{Fore.RED}[!] Invalid selection")
 
     def pairing_exploits_menu(self):
-        """قائمة استغلال الاقتران"""
         if self.current_target['type'] == 'BLE':
             print(f"{Fore.RED}[!] Pairing exploits primarily target Classic Bluetooth.")
             print(f"{Fore.RED}[!] BLE pairing is handled differently. Consider 'BLE Service Exploitation' for BLE devices.")
@@ -651,7 +630,6 @@ class BluetoothPentestFramework:
                 print(f"{Fore.RED}[!] Invalid selection")
 
     def attempt_forced_pairing(self):
-        """محاولة الاقتران القسري دون موافقة أو بـ PINs شائعة"""
         mac = self.current_target['mac']
         print(f"\n{Fore.RED}[*] Attempting forced pairing with {mac}...")
         
@@ -673,7 +651,6 @@ class BluetoothPentestFramework:
         print(f"{Fore.CYAN}[*] This could indicate good security or simply a standard pairing process.")
 
     def _bluetoothctl_pair(self, mac, pin=None):
-        """مساعد: محاولة الاقتران باستخدام bluetoothctl و pexpect"""
         try:
             self.run_cmd(f"bluetoothctl remove {mac}", check_output=False)
             time.sleep(1)
@@ -742,7 +719,6 @@ class BluetoothPentestFramework:
             return False
 
     def attempt_authentication_bypass(self):
-        """محاولة تجاوز المصادقة (ذات صلة بـ BIAS والضعف في آلية الاقتران القديمة)"""
         mac = self.current_target['mac']
         print(f"\n{Fore.RED}[*] Attempting authentication bypass on {mac} (BIAS/Legacy Pairing related)...")
         
@@ -766,7 +742,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] Authentication bypass attempt failed: {str(e)}")
 
     def a2dp_eavesdropping(self):
-        """التنصت على البث الصوتي باستخدام Ubertooth"""
         print(f"\n{Fore.RED}[*] Starting A2DP Eavesdropping with Ubertooth...")
         
         if not self.check_ubertooth():
@@ -801,7 +776,6 @@ class BluetoothPentestFramework:
             self.stop_recording()
     
     def check_ubertooth(self):
-        """التحقق من وجود وتوفر جهاز Ubertooth"""
         try:
             output = self.run_cmd("ubertooth-util -v", check_output=False, timeout=5)
             if "Firmware revision" in output or "ubertooth-btle" in output:
@@ -813,7 +787,6 @@ class BluetoothPentestFramework:
             return False
     
     def convert_to_audio(self, pcap_file):
-        """تحويل حركة البلوتوث إلى ملف صوتي"""
         try:
             mp3_file = pcap_file.replace(".pcap", ".mp3")
             print(f"{Fore.YELLOW}[*] Attempting to extract audio from pcap using gr-bluetooth...")
@@ -838,7 +811,6 @@ class BluetoothPentestFramework:
             pass
 
     def avrcp_hijacking(self):
-        """اختطاف التحكم عن بعد باستخدام AVRCP"""
         print(f"\n{Fore.RED}[*] Starting AVRCP Remote Hijacking...")
         
         if "AVRCP" not in self.current_target.get('services_sdp', '') and "Remote Control" not in self.current_target.get('services_sdp', ''):
@@ -854,7 +826,7 @@ class BluetoothPentestFramework:
         print(f"│ {Fore.YELLOW}6. Next Track                               {Fore.CYAN}│")
         print(f"│ {Fore.YELLOW}7. Previous Track                           {Fore.CYAN}│")
         print(f"│ {Fore.YELLOW}8. Back                                     {Fore.CYAN}│")
-        print(f"└───────────────────────────────────────────────────────────────┘{Style.RESET_ALL}")
+        print(f"└─────────────────────────────────────────────────────────┘{Style.RESET_ALL}")
         
         choice = input(f"{Fore.GREEN}[>] Select command: ")
         
@@ -872,7 +844,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] Invalid selection")
     
     def send_avrcp_command(self, command):
-        """إرسال أمر AVRCP باستخدام D-Bus"""
         try:
             device_dbus_path = self.adapter_path.replace('/org/bluez', '') + f"/dev_{self.current_target['mac'].replace(':', '_')}"
             
@@ -896,7 +867,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] Command failed: {str(e)}")
     
     def obex_operations(self):
-        """عمليات نقل الملفات باستخدام OBEX"""
         print(f"\n{Fore.RED}[*] Starting OBEX File Operations...")
         
         if "OBEX Object Push" not in self.current_target.get('services_sdp', '') and "File Transfer" not in self.current_target.get('services_sdp', ''):
@@ -948,7 +918,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.YELLOW}[*] Ensure OBEX service is active and discoverable on target, and target is paired if required.")
     
     async def ble_exploitation(self):
-        """خيارات استغلال BLE المتقدمة"""
         if self.current_target['type'] not in ['BLE', 'Dual-Mode']:
             print(f"{Fore.RED}[!] This option is for BLE or Dual-Mode devices only.")
             return
@@ -1055,7 +1024,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] Failed to connect or interact with GATT: {str(e)}")
 
     async def subscribe_to_ble_notifications(self):
-        """الاشتراك في إشعارات/مؤشرات BLE"""
         mac = self.current_target['mac']
         if not self.current_target.get('gatt_services'):
             print(f"{Fore.RED}[!] No GATT services found to subscribe to. Run 'Advanced vulnerability assessment' first.")
@@ -1120,7 +1088,7 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] Failed to connect or subscribe: {str(e)}")
     
     async def ble_address_spoofing(self):
-        """BLE Address Spoofing باستخدام D-Bus LEAdvertisingManager1"""
+        """BLE Address Spoofing D-Bus LEAdvertisingManager1"""
         print(f"\n{Fore.RED}[*] Starting BLE Address Spoofing (via D-Bus LEAdvertisingManager1)...")
         
         spoof_name = input(f"{Fore.GREEN}[>] Enter device name to advertise (e.g., 'Trusted Device'): ").strip()
@@ -1153,7 +1121,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.RED}[!] Failed to initiate BLE Address Spoofing: {str(e)}")
 
     async def dos_attack(self):
-        """شن هجوم حجب الخدمة (DoS)"""
         print(f"\n{Fore.RED}[*] Launching DoS Attack on {self.current_target['mac']}...")
         
         print(f"{Fore.CYAN}┌─────────────────[ DoS ATTACK TYPES ]─────────────────┐")
@@ -1339,8 +1306,6 @@ class BluetoothPentestFramework:
             print(f"{Fore.GREEN}[+] Vulnerability report saved to {filename}")
         except Exception as e:
             print(f"{Fore.RED}[!] Failed to save vulnerability report: {str(e)}")
-
-    # --- New Fuzzing Engine Functions ---
 
     async def fuzzing_menu(self):
         """Main menu for the Zero-Day Fuzzing Engine."""
@@ -1622,3 +1587,4 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     
     asyncio.run(framework.run())
+
