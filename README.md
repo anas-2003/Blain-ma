@@ -140,7 +140,7 @@ Blain is open to contributions!
 
 ---
 > **Code of Conduct**   
-> Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to know how we maintain a respectful community.
+> Please read our [Code of Conduct](code_of_conduct.md) to know how we maintain a respectful community.
 ---
 
 ## License
