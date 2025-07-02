@@ -1,15 +1,17 @@
-# Blain Framework v6.0
+# Blain Framework v2.0
 
+
+
+```
+  ____  _       _                  
+ | __ )| | __ _(_)_ __ 
+ |  _ \| |/ _` | | '_ \ 
+ | |_) | | (_| | | | | |
+ |____/|_|\__,_|_|_| |_|
+
+```
 <div align="center">
-
-```
- ____  _       _                  
-| __ )| | __ _(_)_ __ 
-|  _ \| |/ _` | | '_ \ 
-| |_) | | (_| | | | | |
-|____/|_|\__,_|_|_| |_|
-```
-
+ 
 **Blain: Bluetooth Anas Intelligence Network**
 
 An Advanced Bluetooth Penetration & Zero-Day Discovery Platform
@@ -25,44 +27,44 @@ An Advanced Bluetooth Penetration & Zero-Day Discovery Platform
 
 ---
 
-## 📜 About The Project
+## About The Project
 
 **Blain** is a powerful open-source Bluetooth security framework designed for penetration testers, researchers, and advanced users. Built by Anas Erami, Blain aims to provide a professional-grade toolkit for discovering, assessing, and exploiting Bluetooth vulnerabilities — with an emphasis on ethical usage and zero-day research.
 
-Version 6.0 introduces a full-featured **fuzzing engine**, making Blain a next-gen platform for discovering previously unknown vulnerabilities in BLE devices.
+Version 2.0 introduces a full-featured **fuzzing engine**, making Blain a next-gen platform for discovering previously unknown vulnerabilities in BLE devices.
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🔍 Reconnaissance & Scanning
+### Reconnaissance & Scanning
 - **Dual-Mode Scanning:** Supports both Classic Bluetooth (BR/EDR) and BLE.
 - **Deep Profiling:** Gathers detailed info: name, MAC, vendor, RSSI, services.
 - **Service Enumeration:** Extracts SDP and GATT services for attack surface mapping.
 
-### 🔒 Vulnerability Assessment
+### Vulnerability Assessment
 - **Modular JSON Database:** Load, update, and manage known vulnerability definitions.
 - **Active Rule-Based Testing:** Goes beyond version checks — executes commands and pairing attempts to confirm vulnerabilities like BlueBorne, KNOB, and BIAS.
 
-### 💣 Exploitation Toolkit
+### Exploitation Toolkit
 - **Pairing Exploits:** Common-PIN, forced pairing, and bypass attacks.
 - **BLE Data Access:** Read/write/subscribe to BLE characteristics.
 - **AVRCP/OBEX Hijack:** Take control of media or access files from vulnerable targets.
 - **DoS Attacks:** Launch GATT or L2CAP flood attacks.
 - **A2DP Eavesdropping:** (Experimental, requires Ubertooth or SDR hardware).
 
-### 🧠 Zero-Day Fuzzing Engine
+### Zero-Day Fuzzing Engine
 - **Mutation-Based Fuzzing:** Smart (bit-flip) and dumb fuzzing modes.
 - **Live Target Health Check:** Auto-monitoring via l2ping.
 - **Crash Logging:** Generates detailed JSON crash reports with test data.
 
-### 🛠 Monitoring & Post-Exploitation
+### Monitoring & Post-Exploitation
 - **Bluetooth Sniffing:** Integrated with Wireshark/dumpcap.
 - **Logs & Reports:** Structured output for all scans, exploits, and fuzzing attempts.
 
 ---
 
-## ⚙️ Requirements
+## ⚙ Requirements
 
 ### System Requirements
 - **OS:** Debian-based Linux (Ubuntu, Kali, Parrot, etc.)
@@ -81,7 +83,7 @@ Blain requires several tools and libraries. Run the installer to handle them.
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 ```bash
@@ -91,7 +93,7 @@ cd Blain-ma
 
 ### 2. Run the Installer
 ```bash
-sudo ./install_and_run.sh
+sudo ./setup.sh
 ```
 
 This script will:
@@ -102,12 +104,12 @@ This script will:
 
 To specify an adapter:
 ```bash
-sudo ./install_and_run.sh --adapter hci1
+sudo ./setup.sh --adapter hci1
 ```
 
 ---
 
-## ⚠️ Legal Disclaimer
+## ⚠ Legal Disclaimer
 
 > This framework is provided for **educational** and **authorized** testing only. You are fully responsible for how you use this tool. **Never scan, exploit, or interact with Bluetooth devices you do not own or have explicit permission to test.**
 
@@ -115,7 +117,7 @@ Anas Erami assumes **no liability** for misuse or damages.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Blain is open to contributions!
 
@@ -131,13 +133,13 @@ Blain is open to contributions!
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License**. See the `LICENSE` file.
 
 ---
 
-## 📧 Contact
+## Contact
 
 **Developer:** Anas Erami  
 📧 Email: [anaserami17@gmail.com](mailto:anaserami17@gmail.com)  
