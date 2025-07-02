@@ -1,0 +1,5 @@
+bleak
+pyobex
+pexpect
+dbus-python
+colorama
