@@ -106,6 +106,8 @@ This script will:
 
 To specify an adapter:
 ```bash
+pip install -r requirements.txt
+
 sudo ./setup.sh --adapter hci1
 ```
 
