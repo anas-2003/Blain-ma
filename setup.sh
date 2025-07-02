@@ -26,7 +26,6 @@ printf "${GREEN}[+] Root privileges confirmed.${NC}\n\n"
 printf "${YELLOW}[*] Updating package list and installing system dependencies...${NC}\n"
 printf "${YELLOW}    This may take a few minutes and will require your password for sudo.${NC}\n"
 
-apt-get update
 apt-get install -y python3-pip python3-venv bluez bluez-tools libbluetooth-dev \
                    wireshark ffmpeg ubertooth gr-bluetooth obexftp
 
