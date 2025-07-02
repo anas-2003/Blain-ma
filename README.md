@@ -93,6 +93,8 @@ cd Blain-ma
 
 ### 2. Run the Installer
 ```bash
+chmod +x setup.sh
+
 sudo ./setup.sh
 ```
 
