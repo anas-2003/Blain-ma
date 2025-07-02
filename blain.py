@@ -224,11 +224,11 @@ class BluetoothPentestFramework:
     
     def show_banner(self):
         banner = fr"""{Fore.GREEN} 
-  ____  _       _                      
- | __ )| | __ _(_)_ __ 
- |  _ \| |/ _` | | '_ \ 
- |_) | | (_| | | | | | |
- |____/|_|\__,_|_|_| |_|
+ ____  _       _                  
+| __ )| | __ _(_)_ __ 
+|  _ \| |/ _` | | '_ \ 
+| |_) | | (_| | | | | |
+|____/|_|\__,_|_|_| |_|
 
 {Style.RESET_ALL}{Fore.CYAN}Elite Bluetooth Penetration & Exploitation Framework v6.0{Style.RESET_ALL}
         {Fore.YELLOW}Developed by Anas Erami | {datetime.now().strftime('%Y-%m-%d')}
