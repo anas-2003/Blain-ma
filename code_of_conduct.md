@@ -1,6 +1,6 @@
 # Contributor Covenant Code of Conduct
 
-## 🧭 Our Pledge
+## Our Pledge
 
 We as members, contributors, and leaders pledge to make participation in **Blain** a respectful, inclusive, and harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
@@ -8,7 +8,7 @@ We commit to acting and interacting in ways that contribute to an open, welcomin
 
 ---
 
-## 📌 Our Standards
+## Our Standards
 
 Examples of behavior that contributes to a positive environment include:
 - Using welcoming and inclusive language
@@ -32,7 +32,7 @@ Project maintainers are responsible for clarifying and enforcing standards of ac
 
 ---
 
-## 🚨 Enforcement
+## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting:
 
@@ -42,7 +42,7 @@ All complaints will be reviewed and investigated promptly and fairly. All mainta
 
 ---
 
-## 📄 Attribution
+## Attribution
 
 This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1, available at [https://www.contributor-covenant.org/version/2/1/code_of_conduct.html](https://www.contributor-covenant.org/version/2/1/code_of_conduct.html)
 
