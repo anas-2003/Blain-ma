@@ -6,7 +6,7 @@ Whether you're fixing bugs, adding new vulnerability definitions, writing docume
 
 ---
 
-## 🚀 How to Contribute
+##  How to Contribute
 
 ### 1. Fork the Repository
 
@@ -45,7 +45,7 @@ Open a PR to the main branch with a description of your changes.
 
 ---
 
-## 🧠 Contribution Ideas
+##  Contribution Ideas
 
 - 🔧 Fix issues (check the [Issues tab](https://github.com/anas-2003/Blain-ma/issues))
 - 🐛 Improve error handling or logs
@@ -56,7 +56,7 @@ Open a PR to the main branch with a description of your changes.
 
 ---
 
-## 🧩 Guidelines
+##  Guidelines
 
 - Follow Python coding conventions (PEP8).
 - Respect existing architecture and naming conventions.
@@ -65,13 +65,13 @@ Open a PR to the main branch with a description of your changes.
 
 ---
 
-## ⚖️ Legal Reminder
+## ⚖ Legal Reminder
 
 This project is for **authorized security research only**. All contributions must align with ethical hacking practices. Any malicious or unlawful use will not be tolerated.
 
 ---
 
-## 📬 Contact
+##  Contact
 
 If you have any questions or want to discuss ideas before contributing:
 
