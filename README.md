@@ -134,13 +134,13 @@ Blain is open to contributions!
 ---
 
 >  **Want to contribute to Blain?**  
-> Check out our [CONTRIBUTING guide](./CONTRIBUTING.md) for how to get involved!
+> Check out our [CONTRIBUTING guide](CONTRIBUTING.md) for how to get involved!
 
 ---
 
 ---
 > **Code of Conduct**   
-> Please read our [Code of Conduct](./CODE_OF_CONDUCT.md) to know how we maintain a respectful community.
+> Please read our [Code of Conduct](CODE_OF_CONDUCT.md) to know how we maintain a respectful community.
 ---
 
 ## License
