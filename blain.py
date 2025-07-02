@@ -230,7 +230,7 @@ class BluetoothPentestFramework:
 | |_) | | (_| | | | | |
 |____/|_|\__,_|_|_| |_|
 
-{Style.RESET_ALL}{Fore.CYAN}Elite Bluetooth Penetration & Exploitation Framework v6.0{Style.RESET_ALL}
+{Style.RESET_ALL}{Fore.CYAN}Elite Bluetooth Penetration & Exploitation Blain Framework v2.0{Style.RESET_ALL}
         {Fore.YELLOW}Developed by Anas Erami | {datetime.now().strftime('%Y-%m-%d')}
         """
         print(banner)
